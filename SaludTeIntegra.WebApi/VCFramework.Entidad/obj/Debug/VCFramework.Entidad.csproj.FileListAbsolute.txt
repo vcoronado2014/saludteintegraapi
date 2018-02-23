@@ -1,0 +1,5 @@
+C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
