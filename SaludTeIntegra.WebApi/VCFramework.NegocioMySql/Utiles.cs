@@ -16,6 +16,18 @@ namespace VCFramework.NegocioMySQL
         public const string JSON_DOCTYPE = "application/json";
         public const string XML_DOCTYPE = "application/xml";
 
+        public static string NLogs(string mensaje)
+        {
+            var logger = NLog.LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
+            logger.Log(NLog.LogLevel.Info, mensaje);
+            return mensaje;
+        }
+        public static string NLogs(Exception ex)
+        {
+            var logger = NLog.LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
+            logger.LogException(NLog.LogLevel.Error, "Error", ex);
+            return ex.Message;
+        }
 
         public static Image NonLockingOpen(string filename)
         {

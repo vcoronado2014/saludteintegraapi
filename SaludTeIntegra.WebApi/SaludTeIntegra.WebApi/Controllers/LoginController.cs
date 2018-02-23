@@ -41,13 +41,14 @@ namespace SaludTeIntegra.WebApi.Controllers
             {
                 string usu = data.usuario;
                 string pass = data.password;
+                
                 List<VCFramework.Entidad.AutentificacionUsuario> lista = VCFramework.NegocioMySql.AutentificacionUsuario.Listar();
                 VCFramework.Entidad.Resultado result = new Resultado();
                 result.Datos = lista;
                 result.Mensaje = new Mensaje();
                 result.Mensaje.Codigo = 0;
                 result.Mensaje.Texto = "Correcto";
-                
+                //VCFramework.NegocioMySQL.Utiles.NLogs("prueba de mensaje");
                 if (lista != null)
                 {
                     httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
@@ -63,9 +64,19 @@ namespace SaludTeIntegra.WebApi.Controllers
             }
             catch (Exception ex)
             {
-                VCFramework.NegocioMySQL.Utiles.Log(ex);
-                httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
-                throw ex;
+                VCFramework.NegocioMySQL.Utiles.NLogs(ex);
+                //VCFramework.Entidad.Resultado result = new Resultado();
+                //result.Datos = null;
+                //result.Mensaje = new Mensaje();
+                //result.Mensaje.Codigo = 1000;
+                //result.Mensaje.Texto = ex.Message;
+                //httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
+                //String JSON = JsonConvert.SerializeObject(result);
+                //httpResponse.Content = new StringContent(JSON);
+                //httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
+
+                //throw ex;
+                httpResponse = ManejoMensajes.RetornaMensajeExcepcion(httpResponse, ex);
             }
             return httpResponse;
 

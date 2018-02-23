@@ -3,3 +3,8 @@ C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramewor
 C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
 C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
