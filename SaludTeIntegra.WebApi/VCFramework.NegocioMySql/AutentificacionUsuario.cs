@@ -66,5 +66,78 @@ namespace VCFramework.NegocioMySql
             return entidad;
         }
 
+        public static int Insertar(VCFramework.Entidad.AutentificacionUsuario entidad)
+        {
+            int retorno = 0;
+            try
+            {
+                Factory fac = new Factory();
+                retorno = fac.Insertar<VCFramework.Entidad.AutentificacionUsuario>(entidad, setCnsWebLun);
+            }
+            catch(Exception ex)
+            {
+                VCFramework.NegocioMySQL.Utiles.NLogs(ex);
+            }
+            return retorno;
+        }
+        public static int Delete(VCFramework.Entidad.AutentificacionUsuario entidad)
+        {
+            int retorno = 1;
+            try
+            {
+                Factory fac = new Factory();
+                retorno = fac.Delete<VCFramework.Entidad.AutentificacionUsuario>(entidad, setCnsWebLun);
+            }
+            catch(Exception ex)
+            {
+                NegocioMySQL.Utiles.NLogs(ex);
+            }
+            return retorno;
+        }
+        public static int Modificar(VCFramework.Entidad.AutentificacionUsuario entidad)
+        {
+            int retorno = 1;
+            try
+            {
+                Factory fac = new Factory();
+                retorno = fac.Update<VCFramework.Entidad.AutentificacionUsuario>(entidad, setCnsWebLun);
+            }
+            catch (Exception ex)
+            {
+                NegocioMySQL.Utiles.NLogs(ex);
+            }
+            return retorno;
+        }
+        public static int Eliminar(VCFramework.Entidad.AutentificacionUsuario entidad)
+        {
+            int retorno = 1;
+            try
+            {
+                entidad.Eliminado = 1;
+                Factory fac = new Factory();
+                retorno = fac.Update<VCFramework.Entidad.AutentificacionUsuario>(entidad, setCnsWebLun);
+            }
+            catch (Exception ex)
+            {
+                NegocioMySQL.Utiles.NLogs(ex);
+            }
+            return retorno;
+        }
+        public static int Desactivar(VCFramework.Entidad.AutentificacionUsuario entidad)
+        {
+            int retorno = 1;
+            try
+            {
+                entidad.Activo = 0;
+                Factory fac = new Factory();
+                retorno = fac.Update<VCFramework.Entidad.AutentificacionUsuario>(entidad, setCnsWebLun);
+            }
+            catch (Exception ex)
+            {
+                NegocioMySQL.Utiles.NLogs(ex);
+            }
+            return retorno;
+        }
+
     }
 }
