@@ -171,7 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutentificacionUsuario.cs" />
+    <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roles.cs" />
     <Compile Include="Utiles.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +181,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VCFramework.EntidadFuncional\VCFramework.EntidadFuncional.csproj">
+      <Project>{1007d0f8-9905-4f16-87b4-f5eae49f879a}</Project>
+      <Name>VCFramework.EntidadFuncional</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VCFramework.Entidad\VCFramework.Entidad.csproj">
       <Project>{796aefc5-0d17-4002-80af-0b299f3a0e64}</Project>
       <Name>VCFramework.Entidad</Name>

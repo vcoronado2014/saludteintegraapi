@@ -8,3 +8,8 @@ E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramewor
 E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
 E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+\\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
+\\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
+\\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
+\\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb

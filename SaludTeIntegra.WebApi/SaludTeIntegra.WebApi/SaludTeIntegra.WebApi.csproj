@@ -346,6 +346,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EnumMensajes.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManejoMensajes.cs" />
@@ -363,6 +364,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="CodigosRetorno.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -436,6 +438,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VCFramework.EntidadFuncional\VCFramework.EntidadFuncional.csproj">
+      <Project>{1007d0f8-9905-4f16-87b4-f5eae49f879a}</Project>
+      <Name>VCFramework.EntidadFuncional</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VCFramework.Entidad\VCFramework.Entidad.csproj">
       <Project>{796aefc5-0d17-4002-80af-0b299f3a0e64}</Project>
       <Name>VCFramework.Entidad</Name>

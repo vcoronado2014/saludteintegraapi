@@ -25,58 +25,92 @@ namespace SaludTeIntegra.WebApi.Controllers
         public HttpResponseMessage Post(dynamic DynamicClass)
         {
 
+            HttpResponseMessage httpResponse = new HttpResponseMessage();
+
             string Input = JsonConvert.SerializeObject(DynamicClass);
 
             dynamic data = JObject.Parse(Input);
 
             //validaciones antes de ejecutar la llamada.
             if (data.usuario == "")
-                throw new ArgumentNullException("Usuario");
-            if (data.password == "")
-                throw new ArgumentNullException("Password");
-
-
-            HttpResponseMessage httpResponse = new HttpResponseMessage();
-            try
             {
-                string usu = data.usuario;
-                string pass = data.password;
-                
-                List<VCFramework.Entidad.AutentificacionUsuario> lista = VCFramework.NegocioMySql.AutentificacionUsuario.Listar();
-                VCFramework.Entidad.Resultado result = new Resultado();
-                result.Datos = lista;
-                result.Mensaje = new Mensaje();
-                result.Mensaje.Codigo = 0;
-                result.Mensaje.Texto = "Correcto";
-                //VCFramework.NegocioMySQL.Utiles.NLogs("prueba de mensaje");
-                if (lista != null)
-                {
-                    httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
-                    String JSON = JsonConvert.SerializeObject(result);
-                    httpResponse.Content = new StringContent(JSON);
-                    httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
-                }
-                else
-                {
-                    httpResponse = new HttpResponseMessage(HttpStatusCode.NoContent);
-                }
-             
+                httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Nombre de Usuario");
             }
-            catch (Exception ex)
+            else if (data.password == "")
             {
-                VCFramework.NegocioMySQL.Utiles.NLogs(ex);
-                //VCFramework.Entidad.Resultado result = new Resultado();
-                //result.Datos = null;
-                //result.Mensaje = new Mensaje();
-                //result.Mensaje.Codigo = 1000;
-                //result.Mensaje.Texto = ex.Message;
-                //httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
-                //String JSON = JsonConvert.SerializeObject(result);
-                //httpResponse.Content = new StringContent(JSON);
-                //httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
+                httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Password");
+            }
+            else
+            {
+                try
+                {
+                    string usu = data.usuario;
+                    string pass = data.password;
 
-                //throw ex;
-                httpResponse = ManejoMensajes.RetornaMensajeExcepcion(httpResponse, ex);
+                    string password = VCFramework.NegocioMySQL.Utiles.Encriptar(pass);
+
+                    VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorNombreUsuario(usu);
+                    VCFramework.EntidadFuncional.UsuarioEnvoltorio usuario = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
+                    if (aus != null && aus.Id > 0)
+                    {
+                        //verificamos eliminado y activo
+                        if (aus.Activo == 1 && aus.Eliminado == 0)
+                        {
+                            //ahora comparamos la clave
+                            if (aus.Password == password)
+                            {
+                                //buscamos persona
+                                VCFramework.Entidad.Persona persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(aus.Id);
+                                if (persona != null && persona.Id > 0)
+                                {
+                                    //buscamos rol
+                                    VCFramework.Entidad.Roles rol = VCFramework.NegocioMySql.Roles.ListarRolesPorId(aus.RolId);
+                                    if (rol != null && rol.Id > 0)
+                                    {
+                                        //ahora esta todo ok y construimos la data respectiva
+                                        usuario.AutentificacionUsuario = new AutentificacionUsuario();
+                                        usuario.AutentificacionUsuario = aus;
+                                        usuario.Persona = new Persona();
+                                        usuario.Persona = persona;
+                                        usuario.Rol = new Roles();
+                                        usuario.Rol = rol;
+                                        httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usuario);
+
+                                    }
+                                    else
+                                    {
+                                        httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Sin_Rol_asociado);
+                                    }
+                                }
+                                else
+                                {
+                                    httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Sin_persona_asociada);
+                                }
+                            }
+                            else
+                            {
+                                httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Clave_incorrecta);
+                            }
+                        }
+                        else
+                        {
+                            //autentificacion inactiva o eliminada
+                            httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Inactivo_o_Eliminado);
+                        }
+                    }
+                    else
+                    {
+                        httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Usuario_no_existe);
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    VCFramework.NegocioMySQL.Utiles.NLogs(ex);
+                    httpResponse = ManejoMensajes.RetornaMensajeExcepcion(httpResponse, ex);
+                }
             }
             return httpResponse;
 
