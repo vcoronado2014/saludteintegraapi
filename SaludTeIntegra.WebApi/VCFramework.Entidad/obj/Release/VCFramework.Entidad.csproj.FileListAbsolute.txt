@@ -1,0 +1,4 @@
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Release\VCFramework.Entidad.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Release\VCFramework.Entidad.pdb
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb

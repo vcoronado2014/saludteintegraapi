@@ -46,6 +46,17 @@ namespace SaludTeIntegra.WebApi
             );
             #endregion
 
+            #region  Visor
+            config.Routes.MapHttpRoute(
+                name: "Visor",
+                routeTemplate: "api/Visor",
+                defaults: new
+                {
+                    controller = "Visor"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

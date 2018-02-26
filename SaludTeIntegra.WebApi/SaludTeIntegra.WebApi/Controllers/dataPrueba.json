@@ -2,7 +2,7 @@
   //para insertar a Usuario
   {
     "NombreUsuario": "prueba",
-    "NodId": "1",
+    "EcolId": "1",
     "RolId": "2",
     "Nombres": "Juan Manuel",
     "PrimerApellido": "Lastarria",
@@ -19,7 +19,7 @@
   //para modificar a usuario sin apssword
   {
     "NombreUsuario": "prueba",
-    "NodId": "1",
+    "EcolId": "1",
     "RolId": "2",
     "Nombres": "Juan Manuel",
     "PrimerApellido": "Lastarria",
@@ -36,7 +36,7 @@
   //para modificar cambio de password
   {
     "NombreUsuario": "prueba",
-    "NodId": "1",
+    "EcolId": "1",
     "RolId": "2",
     "Nombres": "Juan Manuel",
     "PrimerApellido": "Lastarria",
@@ -58,17 +58,17 @@
   //get /api/Usuario?id=3
   //todos los usuarios del administrador
   {
-    "NodId": "0",
+    "EcolId": "0",
     "RolId": "1"
   },
   //usuarios de un nodo y administrador
   {
-    "NodId": "1",
+    "EcolId": "1",
     "RolId": "1"
   },
   //usuarios de un nodo y administrador de establecimiento
    {
-    "NodId": "1",
+    "EcolId": "1",
     "RolId": "2"
   }
 ]

@@ -22,12 +22,12 @@ namespace VCFramework.NegocioMySql
             return lista2;
         }
 
-        public static List<VCFramework.Entidad.AutentificacionUsuario> ListarUsuariosPorNodId(int nodId)
+        public static List<VCFramework.Entidad.AutentificacionUsuario> ListarUsuariosPorEcolId(int ecolId)
         {
             VCFramework.Negocio.Factory.Factory fac = new VCFramework.Negocio.Factory.Factory();
             FiltroGenerico filtro = new FiltroGenerico();
-            filtro.Campo = "NOD_ID";
-            filtro.Valor = nodId.ToString();
+            filtro.Campo = "ECOL_ID";
+            filtro.Valor = ecolId.ToString();
             filtro.TipoDato = TipoDatoGeneral.Entero;
 
             FiltroGenerico filtroEliminado = new FiltroGenerico();

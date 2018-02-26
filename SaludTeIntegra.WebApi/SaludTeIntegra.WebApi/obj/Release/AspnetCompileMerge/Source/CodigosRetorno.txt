@@ -1,0 +1,4 @@
+﻿0: Correcto
+1000: Excepcion
+1: Usuario no existe
+2: Contraseña incorrecta

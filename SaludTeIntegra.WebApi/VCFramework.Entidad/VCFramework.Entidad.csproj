@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AutentificacionUsuario.cs" />
     <Compile Include="EntidadBase.cs" />
+    <Compile Include="EntidadContratante.cs" />
     <Compile Include="Mensaje.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

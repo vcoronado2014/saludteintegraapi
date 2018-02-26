@@ -624,3 +624,5 @@ C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.csprojResolveAssemblyReference.cache
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.dll
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.pdb
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\VCFramework.EntidadFuncional.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\VCFramework.EntidadFuncional.pdb

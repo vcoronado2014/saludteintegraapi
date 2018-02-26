@@ -35,9 +35,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                 httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Nombre de Usuario");
             }
             //password no es requerido ya que puede ser una actualizaciòn de usuario
-            else if (data.NodId == "")
+            else if (data.EcolId == "")
             {
-                httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Nod Id");
+                httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Ecol Id");
             }
             else if (data.RolId == "")
             {
@@ -70,7 +70,7 @@ namespace SaludTeIntegra.WebApi.Controllers
                 {
                     //variables
                     string nombreUsuario = data.NombreUsuario;
-                    string nodId = data.NodId;
+                    string ecolId = data.EcolId;
                     string rolId = data.RolId;
                     string nombres = data.Nombres;
                     string primerApellido = data.PrimerApellido;
@@ -126,7 +126,7 @@ namespace SaludTeIntegra.WebApi.Controllers
                     VCFramework.Entidad.AutentificacionUsuario ausG = new AutentificacionUsuario();
                     ausG.Activo = int.Parse(activo);
                     ausG.Eliminado = int.Parse(eliminado);
-                    ausG.NodId = int.Parse(nodId);
+                    ausG.EcolId = int.Parse(ecolId);
                     ausG.NombreUsuario = nombreUsuario;
                     ausG.RolId = int.Parse(rolId);
                     //persona
@@ -359,6 +359,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                         usu.Persona = persona;
                         usu.Rol = new Roles();
                         usu.Rol = rol;
+                        VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(aus.EcolId);
+                        usu.EntidadContratante = new EntidadContratante();
+                        usu.EntidadContratante = contratante;
 
                         httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usu, EnumMensajes.Registro_desactivado_con_exito);
                     }
@@ -385,9 +388,9 @@ namespace SaludTeIntegra.WebApi.Controllers
 
             dynamic data = JObject.Parse(Input);
 
-            if (data.NodId == "")
+            if (data.EcolId == "")
             {
-                httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Nod Id");
+                httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Ecol Id");
             }
             else if (data.RolId == "")
             {
@@ -398,7 +401,7 @@ namespace SaludTeIntegra.WebApi.Controllers
             {
                 try
                 {
-                    string nodId = data.NodId;
+                    string ecolId = data.EcolId;
                     string rolId = data.RolId;
 
                     //buscamos a los usuarios dependiendo de algunos factores
@@ -407,7 +410,7 @@ namespace SaludTeIntegra.WebApi.Controllers
                     if (int.Parse(rolId) == 1)
                     {
                         //si el valor de nodid = 0 es todos
-                        if(int.Parse(nodId) == 0)
+                        if(int.Parse(ecolId) == 0)
                         {
                             List<VCFramework.Entidad.AutentificacionUsuario> aus = VCFramework.NegocioMySql.AutentificacionUsuario.Listar();
                             if (aus != null && aus.Count > 0)
@@ -421,6 +424,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                                     usuEnv.Persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(au.Id);
                                     usuEnv.Rol = new Roles();
                                     usuEnv.Rol = VCFramework.NegocioMySql.Roles.ListarRolesPorId(au.RolId);
+                                    VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(au.EcolId);
+                                    usuEnv.EntidadContratante = new EntidadContratante();
+                                    usuEnv.EntidadContratante = contratante;
                                     usuarios.Add(usuEnv);
                                 }
                             }
@@ -428,7 +434,7 @@ namespace SaludTeIntegra.WebApi.Controllers
                         }
                         else
                         {
-                            List<VCFramework.Entidad.AutentificacionUsuario> aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorNodId(int.Parse(nodId));
+                            List<VCFramework.Entidad.AutentificacionUsuario> aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorEcolId(int.Parse(ecolId));
                             if (aus != null && aus.Count > 0)
                             {
                                 foreach (VCFramework.Entidad.AutentificacionUsuario au in aus)
@@ -440,6 +446,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                                     usuEnv.Persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(au.Id);
                                     usuEnv.Rol = new Roles();
                                     usuEnv.Rol = VCFramework.NegocioMySql.Roles.ListarRolesPorId(au.RolId);
+                                    VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(au.EcolId);
+                                    usuEnv.EntidadContratante = new EntidadContratante();
+                                    usuEnv.EntidadContratante = contratante;
                                     usuarios.Add(usuEnv);
                                 }
                             }
@@ -447,7 +456,7 @@ namespace SaludTeIntegra.WebApi.Controllers
                     }
                     else
                     {
-                        List<VCFramework.Entidad.AutentificacionUsuario> aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorNodId(int.Parse(nodId));
+                        List<VCFramework.Entidad.AutentificacionUsuario> aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorEcolId(int.Parse(ecolId));
                         if (aus != null && aus.Count > 0)
                         {
                             foreach (VCFramework.Entidad.AutentificacionUsuario au in aus)
@@ -461,6 +470,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                                     usuEnv.Persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(au.Id);
                                     usuEnv.Rol = new Roles();
                                     usuEnv.Rol = VCFramework.NegocioMySql.Roles.ListarRolesPorId(au.RolId);
+                                    VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(au.EcolId);
+                                    usuEnv.EntidadContratante = new EntidadContratante();
+                                    usuEnv.EntidadContratante = contratante;
                                     usuarios.Add(usuEnv);
                                 }
                             }

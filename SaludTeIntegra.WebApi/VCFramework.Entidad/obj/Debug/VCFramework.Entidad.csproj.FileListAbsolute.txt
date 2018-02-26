@@ -5,7 +5,6 @@ C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramewor
 C:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
 E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll
 E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.pdb
-E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache
 E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
 \\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Debug\VCFramework.Entidad.dll

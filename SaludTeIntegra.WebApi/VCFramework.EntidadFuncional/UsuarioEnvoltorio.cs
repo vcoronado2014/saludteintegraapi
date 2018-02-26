@@ -11,5 +11,6 @@ namespace VCFramework.EntidadFuncional
         public Entidad.AutentificacionUsuario AutentificacionUsuario { get; set; }
         public Entidad.Persona Persona { get; set; }
         public Entidad.Roles Rol { get; set; }
+        public Entidad.EntidadContratante EntidadContratante { get; set; }
     }
 }

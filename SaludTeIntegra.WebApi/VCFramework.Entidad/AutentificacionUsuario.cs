@@ -11,7 +11,7 @@ namespace VCFramework.Entidad
         public string NombreUsuario { get; set; }
         public string Password { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public int NodId { get; set; }
+        public int EcolId { get; set; }
         public int RolId { get; set; }
     }
 }

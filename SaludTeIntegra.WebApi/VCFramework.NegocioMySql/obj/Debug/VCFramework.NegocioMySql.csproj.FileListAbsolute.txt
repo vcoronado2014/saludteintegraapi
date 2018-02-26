@@ -216,3 +216,5 @@ C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.NegocioMyS
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.csprojResolveAssemblyReference.cache
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.dll
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.NegocioMySql\obj\Debug\VCFramework.NegocioMySql.pdb
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.NegocioMySql\bin\Debug\VCFramework.EntidadFuncional.pdb

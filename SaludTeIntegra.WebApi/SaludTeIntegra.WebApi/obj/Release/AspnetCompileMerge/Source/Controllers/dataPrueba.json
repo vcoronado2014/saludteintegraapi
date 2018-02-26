@@ -1,0 +1,74 @@
+﻿[
+  //para insertar a Usuario
+  {
+    "NombreUsuario": "prueba",
+    "EcolId": "1",
+    "RolId": "2",
+    "Nombres": "Juan Manuel",
+    "PrimerApellido": "Lastarria",
+    "CorreoElectronico": "vcoronado@gmail.com",
+    "AusId": "0",
+    "Password": "123456",
+    "SegundoApellido": "Contreras",
+    "TelefonoContactoUno": "940178395",
+    //"TelefonoContactoDos": "940178564",
+    //"Activo": "1",
+    //"Eliminado": "0",
+    "Run": "104526918"
+  },
+  //para modificar a usuario sin apssword
+  {
+    "NombreUsuario": "prueba",
+    "EcolId": "1",
+    "RolId": "2",
+    "Nombres": "Juan Manuel",
+    "PrimerApellido": "Lastarria",
+    "CorreoElectronico": "vcoronado@gmail.com",
+    "AusId": "3",
+    //"Password": "123456",
+    "SegundoApellido": "Contreras",
+    "TelefonoContactoUno": "940178395",
+    "TelefonoContactoDos": "940178564",
+    "Activo": "1",
+    "Eliminado": "0",
+    "Run": "104526918"
+  },
+  //para modificar cambio de password
+  {
+    "NombreUsuario": "prueba",
+    "EcolId": "1",
+    "RolId": "2",
+    "Nombres": "Juan Manuel",
+    "PrimerApellido": "Lastarria",
+    "CorreoElectronico": "vcoronado@gmail.com",
+    "AusId": "3",
+    "Password": "1234567",
+    "SegundoApellido": "Contreras",
+    "TelefonoContactoUno": "940178395",
+    "TelefonoContactoDos": "940178564",
+    "Activo": "1",
+    "Eliminado": "0",
+    "Run": "104526918"
+  },
+  //para descativar un usuario
+  {
+    "Id": "3",
+    "TipoOperacion": "0"
+  },
+  //get /api/Usuario?id=3
+  //todos los usuarios del administrador
+  {
+    "EcolId": "0",
+    "RolId": "1"
+  },
+  //usuarios de un nodo y administrador
+  {
+    "EcolId": "1",
+    "RolId": "1"
+  },
+  //usuarios de un nodo y administrador de establecimiento
+   {
+    "EcolId": "1",
+    "RolId": "2"
+  }
+]

@@ -12,3 +12,10 @@ C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFun
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.pdb
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.pdb
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb
