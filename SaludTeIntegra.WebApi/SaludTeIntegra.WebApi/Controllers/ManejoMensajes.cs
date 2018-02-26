@@ -55,6 +55,19 @@ namespace SaludTeIntegra.WebApi.Controllers
             httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
             return httpResponse;
         }
+        public static HttpResponseMessage RetornaMensajeCorrecto(HttpResponseMessage httpResponse, object data, EnumMensajes enumMensajes)
+        {
+            VCFramework.Entidad.Resultado result = new Resultado();
+            result.Datos = data;
+            result.Mensaje = new Mensaje();
+            result.Mensaje.Codigo = (int)enumMensajes;
+            result.Mensaje.Texto = enumMensajes.ToString();
+            httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
+            String JSON = JsonConvert.SerializeObject(result);
+            httpResponse.Content = new StringContent(JSON);
+            httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
+            return httpResponse;
+        }
         public static HttpResponseMessage RetornaMensajeError(HttpResponseMessage httpResponse, EnumMensajes enumMensajes)
         {
             VCFramework.Entidad.Resultado result = new Resultado();

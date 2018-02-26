@@ -20,8 +20,14 @@ namespace VCFramework.NegocioMySql
             filtro.Valor = ausId.ToString();
             filtro.TipoDato = TipoDatoGeneral.Entero;
 
+            FiltroGenerico filtroEliminado = new FiltroGenerico();
+            filtroEliminado.Campo = "ELIMINADO";
+            filtroEliminado.Valor = "0";
+            filtroEliminado.TipoDato = TipoDatoGeneral.Entero;
+
             List<FiltroGenerico> filtros = new List<FiltroGenerico>();
             filtros.Add(filtro);
+            filtros.Add(filtroEliminado);
 
             List<object> lista = fac.Leer<VCFramework.Entidad.Persona>(filtros, setCnsWebLun);
             List<VCFramework.Entidad.Persona> lista2 = new List<VCFramework.Entidad.Persona>();
@@ -44,8 +50,14 @@ namespace VCFramework.NegocioMySql
             filtro.Valor = id.ToString();
             filtro.TipoDato = TipoDatoGeneral.Entero;
 
+            FiltroGenerico filtroEliminado = new FiltroGenerico();
+            filtroEliminado.Campo = "ELIMINADO";
+            filtroEliminado.Valor = "0";
+            filtroEliminado.TipoDato = TipoDatoGeneral.Entero;
+
             List<FiltroGenerico> filtros = new List<FiltroGenerico>();
             filtros.Add(filtro);
+            filtros.Add(filtroEliminado);
 
             List<object> lista = fac.Leer<VCFramework.Entidad.Persona>(filtros, setCnsWebLun);
             List<VCFramework.Entidad.Persona> lista2 = new List<VCFramework.Entidad.Persona>();

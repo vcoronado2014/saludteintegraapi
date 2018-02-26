@@ -14,6 +14,11 @@ namespace SaludTeIntegra.WebApi.Controllers
         Sin_persona_asociada = 3,
         Sin_Rol_asociado = 4,
         Inactivo_o_Eliminado = 5,
-        Parametro_vacio_o_invalido = 6
+        Parametro_vacio_o_invalido = 6,
+        Usuario_ya_existe = 7,
+        Registro_creado_con_exito = 8,
+        Registro_modificado_con_exito = 9,
+        Registro_desactivado_con_exito = 10,
+        Registro_eliminado_con_exito = 11
     }
 }

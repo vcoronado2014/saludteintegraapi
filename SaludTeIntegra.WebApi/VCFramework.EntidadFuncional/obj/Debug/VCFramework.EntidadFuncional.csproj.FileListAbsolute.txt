@@ -5,3 +5,10 @@
 \\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
 \\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb
+C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.dll
+C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.pdb
+C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.dll
+C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.pdb
+C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
+C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
+C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb

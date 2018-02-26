@@ -20,8 +20,14 @@ namespace VCFramework.NegocioMySql
             filtro.Valor = id.ToString();
             filtro.TipoDato = TipoDatoGeneral.Entero;
 
+            FiltroGenerico filtroEliminado = new FiltroGenerico();
+            filtroEliminado.Campo = "ELIMINADO";
+            filtroEliminado.Valor = "0";
+            filtroEliminado.TipoDato = TipoDatoGeneral.Entero;
+
             List<FiltroGenerico> filtros = new List<FiltroGenerico>();
             filtros.Add(filtro);
+            filtros.Add(filtroEliminado);
 
             List<object> lista = fac.Leer<VCFramework.Entidad.Roles>(filtros, setCnsWebLun);
             List<VCFramework.Entidad.Roles> lista2 = new List<VCFramework.Entidad.Roles>();
@@ -46,7 +52,7 @@ namespace VCFramework.NegocioMySql
             }
             if (lista2 != null && lista2.Count > 0)
             {
-                lista2 = lista2.FindAll(p => p.Id != 1);
+                lista2 = lista2.FindAll(p => p.Id != 1 && p.Eliminado == 0);
             }
             return lista2;
         }
@@ -58,6 +64,10 @@ namespace VCFramework.NegocioMySql
             if (lista != null)
             {
                 lista2 = lista.Cast<VCFramework.Entidad.Roles>().ToList();
+            }
+            if (lista2 != null && lista2.Count > 0)
+            {
+                lista2 = lista2.FindAll(p => p.Id != 1 && p.Eliminado == 0);
             }
             return lista2;
         }
