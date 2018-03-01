@@ -57,6 +57,28 @@ namespace SaludTeIntegra.WebApi
             );
             #endregion
 
+            #region  Rol
+            config.Routes.MapHttpRoute(
+                name: "Rol",
+                routeTemplate: "api/Rol",
+                defaults: new
+                {
+                    controller = "Rol"
+                }
+            );
+            #endregion
+
+            #region  EntidadContratante
+            config.Routes.MapHttpRoute(
+                name: "EntidadContratante",
+                routeTemplate: "api/EntidadContratante",
+                defaults: new
+                {
+                    controller = "EntidadContratante"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
