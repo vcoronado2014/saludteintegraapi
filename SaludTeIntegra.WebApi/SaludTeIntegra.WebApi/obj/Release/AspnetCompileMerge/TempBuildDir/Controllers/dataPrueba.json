@@ -67,8 +67,16 @@
     "RolId": "1"
   },
   //usuarios de un nodo y administrador de establecimiento
-   {
+  {
     "EcolId": "1",
+    "RolId": "2"
+  },
+  //obtener roles super
+  {
+    "RolId": "1"
+  },
+  //obtener roles otro
+  {
     "RolId": "2"
   }
 ]

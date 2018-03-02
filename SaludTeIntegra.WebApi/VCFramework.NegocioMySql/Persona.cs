@@ -143,7 +143,22 @@ namespace VCFramework.NegocioMySql
             }
             return retorno;
         }
-
+        public static int Activar(VCFramework.Entidad.Persona entidad)
+        {
+            int retorno = 1;
+            try
+            {
+                entidad.Activo = 1;
+                entidad.Eliminado = 0;
+                Factory fac = new Factory();
+                retorno = fac.Update<VCFramework.Entidad.Persona>(entidad, setCnsWebLun);
+            }
+            catch (Exception ex)
+            {
+                NegocioMySQL.Utiles.NLogs(ex);
+            }
+            return retorno;
+        }
 
     }
 }

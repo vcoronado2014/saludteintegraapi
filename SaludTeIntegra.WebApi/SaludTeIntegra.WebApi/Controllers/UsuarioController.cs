@@ -236,7 +236,8 @@ namespace SaludTeIntegra.WebApi.Controllers
         //falta agregar la eliminacion y activacion, la cual serà 
         //controlada por un tipo de operacion donde:
         //Tipo 0 = dfesactivacion
-        //tipo 1 = eliminacion
+        //tipo 1 = activar
+        //tipo 2 = eliminar.
         [System.Web.Http.AcceptVerbs("DELETE")]
         public HttpResponseMessage Delete(dynamic DynamicClass)
         {
@@ -290,9 +291,28 @@ namespace SaludTeIntegra.WebApi.Controllers
 
                             httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usu, EnumMensajes.Registro_desactivado_con_exito);
                         }
+                        else if (tipoOperacion == "1")
+                        {
+                            //activar
+                            VCFramework.NegocioMySql.AutentificacionUsuario.Activar(aus);
+                            VCFramework.Entidad.Persona persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(int.Parse(id));
+                            if (persona != null && persona.Id > 0)
+                            {
+                                VCFramework.NegocioMySql.Persona.Activar(persona);
+                            }
+                            //data de retorno
+                            usu.AutentificacionUsuario = new AutentificacionUsuario();
+                            usu.AutentificacionUsuario = aus;
+                            usu.Persona = new Persona();
+                            usu.Persona = persona;
+                            usu.Rol = new Roles();
+                            usu.Rol = rol;
+
+                            httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usu, EnumMensajes.Registro_desactivado_con_exito);
+                        }
                         else
                         {
-                            //eliminar
+                            //eliminar 
                             VCFramework.NegocioMySql.AutentificacionUsuario.Eliminar(aus);
                             VCFramework.Entidad.Persona persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(int.Parse(id));
                             if (persona != null && persona.Id > 0)
