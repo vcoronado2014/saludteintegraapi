@@ -79,6 +79,17 @@ namespace SaludTeIntegra.WebApi
             );
             #endregion
 
+            #region  Ryf
+            config.Routes.MapHttpRoute(
+                name: "Ryf",
+                routeTemplate: "api/Ryf",
+                defaults: new
+                {
+                    controller = "Ryf"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

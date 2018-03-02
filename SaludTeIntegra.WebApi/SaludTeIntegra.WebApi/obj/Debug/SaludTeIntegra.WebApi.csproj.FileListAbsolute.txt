@@ -455,6 +455,8 @@ E:\SaludTeIntegra\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeI
 \\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.csprojResolveAssemblyReference.cache
 \\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.dll
 \\vmware-host\Shared Folders\Proyectos_compartidos\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.pdb
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\VCFramework.EntidadFuncional.dll
+E:\SaludTeIntegra\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\VCFramework.EntidadFuncional.pdb
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\ApplicationInsights.config
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\roslyn\csc.exe
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -624,5 +626,3 @@ C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.csprojResolveAssemblyReference.cache
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.dll
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\obj\Debug\SaludTeIntegra.WebApi.pdb
-E:\SaludTeIntegra\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\VCFramework.EntidadFuncional.dll
-E:\SaludTeIntegra\SaludTeIntegra.WebApi\SaludTeIntegra.WebApi\bin\VCFramework.EntidadFuncional.pdb

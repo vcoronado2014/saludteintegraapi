@@ -22,57 +22,75 @@ namespace SaludTeIntegra.WebApi.Controllers
         public HttpResponseMessage Post(dynamic DynamicClass)
         {
 
+
+            HttpResponseMessage httpResponse = new HttpResponseMessage();
+
             string Input = JsonConvert.SerializeObject(DynamicClass);
 
             dynamic data = JObject.Parse(Input);
 
-            //validaciones antes de ejecutar la llamada.*
-            if (data.UspId == "")
-                throw new ArgumentNullException("UspId");
-            string run = "";
-            string idRyf = "";
-            if (data.Run != "")
-                run = data.Run;
-            if (data.IdRyf != "")
-                idRyf = data.IdRyf;
-
-
-            HttpResponseMessage httpResponse = new HttpResponseMessage();
-            try
+            if (data.Run == "")
             {
-
-                ServicioVisor.visor_clService servicio = new ServicioVisor.visor_clService();
-                ServicioVisor.Request_TT request = new ServicioVisor.Request_TT();
-                request.IdentificadorProfesional = "0";
-                request.IdentificadorUnicoPaciente = idRyf;
-                request.NumeroIdentificacionPaciente = run;
-                request.SistemaSolicitaConsulta = 1;
-                request.TipoIdentificacionPaciente = 1;
-                ServicioVisor.responseTT response = servicio.ObtenerURLVisorHCC(request);
-                //hay que sobrescribir la url ya que se usará de forma local
-                //https://previsor.saludenred.cl/#/NzA0Nzk1OTE=/MQ==/ODkxMDc2OA==/ACF6B3904AC3317878F7837BE03C7B9F
-                //algo asi como 
-                /*
-                 /#/NzA0Nzk1OTE=/MQ==/ODkxMDc2OA==/ACF6B3904AC3317878F7837BE03C7B9F
-                */
-                // y dejarlo 
-                /*
-                /#/NzA0Nzk1OTE=/MQ==/ODkxMDc2OA==/ACF6B3904AC3317878F7837BE03C7B9F/arraydecodigosdeis=12,34,33
-                por mientras la dejamos solita 
-                */
-
-                //respuesta
-                httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
-                String JSON = JsonConvert.SerializeObject(response.URL);
-                httpResponse.Content = new StringContent(JSON);
-                httpResponse.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(VCFramework.NegocioMySQL.Utiles.JSON_DOCTYPE);
-
-
+                httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Rol Id");
             }
-            catch (Exception ex)
+            else
             {
-                httpResponse = new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
-                throw ex;
+                string run = data.Run;
+                string idRyf = "";
+                try
+                {
+
+                    //OBTENEMOS EL IDRYF
+                    VCFramework.EntidadFuncional.Persona perRyf = new VCFramework.EntidadFuncional.Persona();
+                    perRyf = VCFramework.NegocioMySql.PersonaRYF.ListarPersonaPorRun(run);
+
+                    if (perRyf != null && perRyf.Id > 0)
+                    {
+
+                        idRyf = perRyf.Id.ToString();
+
+                        ServicioVisor.visor_clService servicio = new ServicioVisor.visor_clService();
+                        ServicioVisor.Request_TT request = new ServicioVisor.Request_TT();
+                        request.IdentificadorProfesional = "0";
+                        request.IdentificadorUnicoPaciente = idRyf;
+                        request.NumeroIdentificacionPaciente = run;
+                        request.SistemaSolicitaConsulta = 1;
+                        request.TipoIdentificacionPaciente = 1;
+                        ServicioVisor.responseTT response = servicio.ObtenerURLVisorHCC(request);
+                        if (response != null && response.URL.Length > 0)
+                        {
+                            //hay que sobrescribir la url ya que se usará de forma local
+                            //https://previsor.saludenred.cl/#/NzA0Nzk1OTE=/MQ==/ODkxMDc2OA==/ACF6B3904AC3317878F7837BE03C7B9F
+                            //algo asi como 
+                            /*
+                             /#/NzA0Nzk1OTE=/MQ==/ODkxMDc2OA==/ACF6B3904AC3317878F7837BE03C7B9F
+                            */
+                            // y dejarlo 
+                            /*
+                            /#/NzA0Nzk1OTE=/MQ==/ODkxMDc2OA==/ACF6B3904AC3317878F7837BE03C7B9F/arraydecodigosdeis=12,34,33
+                            por mientras la dejamos solita 
+                            */
+                            httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, response.URL);
+
+                        }
+                        else
+                        {
+                            httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, 1000, "Error al obtener url de visor");
+                        }
+
+                    }
+                    else
+                    {
+                        httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, 1000, "Error en la BD de RYF, usuario no existe, valor nulo");
+                    }
+
+
+                }
+                catch (Exception ex)
+                {
+                    VCFramework.NegocioMySQL.Utiles.NLogs(ex);
+                    httpResponse = ManejoMensajes.RetornaMensajeExcepcion(httpResponse, ex);
+                }
             }
             return httpResponse;
 

@@ -173,6 +173,7 @@
     <Compile Include="AutentificacionUsuario.cs" />
     <Compile Include="EntidadContratante.cs" />
     <Compile Include="Persona.cs" />
+    <Compile Include="PersonaRYF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Utiles.cs" />

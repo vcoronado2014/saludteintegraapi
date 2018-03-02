@@ -82,10 +82,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2018 16:19:09</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/01/2018 23:13:10</publishTime>
+      <publishTime>03/02/2018 16:48:47</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/01/2018 23:13:10</publishTime>
+      <publishTime>03/02/2018 16:48:47</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>02/27/2018 16:19:19</publishTime>
@@ -328,10 +328,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2018 16:19:22</publishTime>
     </File>
     <File Include="bin/SaludTeIntegra.WebApi.dll">
-      <publishTime>03/01/2018 23:12:50</publishTime>
+      <publishTime>03/02/2018 16:38:15</publishTime>
     </File>
     <File Include="bin/SaludTeIntegra.WebApi.XmlSerializers.dll">
-      <publishTime>03/01/2018 23:12:51</publishTime>
+      <publishTime>03/02/2018 16:38:16</publishTime>
     </File>
     <File Include="bin/System.Buffers.dll">
       <publishTime>02/27/2018 16:19:24</publishTime>
@@ -388,16 +388,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2018 16:19:21</publishTime>
     </File>
     <File Include="bin/VCFramework.Entidad.dll">
-      <publishTime>02/27/2018 16:19:17</publishTime>
+      <publishTime>03/02/2018 16:38:06</publishTime>
     </File>
     <File Include="bin/VCFramework.EntidadFuncional.dll">
-      <publishTime>02/27/2018 16:19:17</publishTime>
+      <publishTime>03/02/2018 16:38:06</publishTime>
     </File>
     <File Include="bin/VCFramework.Negocio.Factory.dll">
       <publishTime>02/27/2018 16:19:36</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.dll">
-      <publishTime>03/01/2018 23:12:44</publishTime>
+      <publishTime>03/02/2018 16:38:07</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>02/27/2018 16:19:36</publishTime>
@@ -439,7 +439,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2018 16:19:17</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/01/2018 23:12:54</publishTime>
+      <publishTime>03/02/2018 16:48:32</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>02/27/2018 16:19:09</publishTime>
@@ -502,7 +502,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/27/2018 16:19:09</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/01/2018 21:56:02</publishTime>
+      <publishTime>03/02/2018 16:38:19</publishTime>
     </File>
   </ItemGroup>
 </Project>
