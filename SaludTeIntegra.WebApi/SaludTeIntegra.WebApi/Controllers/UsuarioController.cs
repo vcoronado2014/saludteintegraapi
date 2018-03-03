@@ -156,7 +156,7 @@ namespace SaludTeIntegra.WebApi.Controllers
                         {
                             //todo bien, seguir
                             ausG.Password = passwordEncript;
-                            ausG.FechaCreacion = DateTime.Now;
+                            ausG.FechaCreacion =VCFramework.NegocioMySQL.Utiles.ConstruyeFechaDos(DateTime.Now);
                             int idAus = VCFramework.NegocioMySql.AutentificacionUsuario.Insertar(ausG);
                             ausG.Id = idAus;
                             int idPer = VCFramework.NegocioMySql.Persona.Insertar(personaG);
@@ -239,28 +239,28 @@ namespace SaludTeIntegra.WebApi.Controllers
         //tipo 1 = activar
         //tipo 2 = eliminar.
         [System.Web.Http.AcceptVerbs("DELETE")]
-        public HttpResponseMessage Delete(dynamic DynamicClass)
+        public HttpResponseMessage Delete([FromUri]string Id, [FromUri]string TipoOperacion)
         {
             HttpResponseMessage httpResponse = new HttpResponseMessage();
 
-            string Input = JsonConvert.SerializeObject(DynamicClass);
+            //string Input = JsonConvert.SerializeObject(DynamicClass);
 
-            dynamic data = JObject.Parse(Input);
+            //dynamic data = JObject.Parse(Input);
 
             //validaciones antes de ejecutar la llamada.
             //este id corresponde al AusId
-            if (data.Id == "")
+            if (Id == "")
             {
                 httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Aus Id");
             }
-            else if (data.TipoOperacion == "")
+            else if (TipoOperacion == "")
             {
                 httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Tipo Operacion");
             }
             else
             {
-                string id = data.Id;
-                string tipoOperacion = data.TipoOperacion;
+                string id = Id;
+                string tipoOperacion = TipoOperacion;
                 //buscamos 
                 VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorId(int.Parse(id));
                
