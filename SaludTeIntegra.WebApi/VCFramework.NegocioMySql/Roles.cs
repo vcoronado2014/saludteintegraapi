@@ -67,7 +67,7 @@ namespace VCFramework.NegocioMySql
             }
             if (lista2 != null && lista2.Count > 0)
             {
-                lista2 = lista2.FindAll(p => p.Id != 1 && p.Eliminado == 0);
+                lista2 = lista2.FindAll(p => p.Eliminado == 0);
             }
             return lista2;
         }

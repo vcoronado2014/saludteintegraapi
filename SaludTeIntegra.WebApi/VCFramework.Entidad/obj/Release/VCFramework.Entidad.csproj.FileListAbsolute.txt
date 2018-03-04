@@ -6,3 +6,4 @@ C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\bi
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Release\VCFramework.Entidad.pdb
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb
+C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojResolveAssemblyReference.cache

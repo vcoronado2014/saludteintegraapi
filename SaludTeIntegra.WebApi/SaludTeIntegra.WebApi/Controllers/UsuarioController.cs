@@ -159,9 +159,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                             ausG.FechaCreacion =VCFramework.NegocioMySQL.Utiles.ConstruyeFechaDos(DateTime.Now);
                             int idAus = VCFramework.NegocioMySql.AutentificacionUsuario.Insertar(ausG);
                             ausG.Id = idAus;
+                            personaG.AusId = idAus;
                             int idPer = VCFramework.NegocioMySql.Persona.Insertar(personaG);
                             personaG.Id = idPer;
-                            personaG.AusId = idAus;
                             //nuevo elemento a retornar
                             usuario.AutentificacionUsuario = new AutentificacionUsuario();
                             usuario.AutentificacionUsuario = ausG;
