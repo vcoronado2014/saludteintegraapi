@@ -90,6 +90,16 @@ namespace SaludTeIntegra.WebApi
             );
             #endregion
 
+            #region  Clave
+            config.Routes.MapHttpRoute(
+                name: "Clave",
+                routeTemplate: "api/Clave",
+                defaults: new
+                {
+                    controller = "Clave"
+                }
+            );
+            #endregion
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

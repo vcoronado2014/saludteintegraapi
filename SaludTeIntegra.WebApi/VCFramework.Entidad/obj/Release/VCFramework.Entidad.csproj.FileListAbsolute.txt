@@ -7,3 +7,9 @@ C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\bi
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb
 C:\SaludTeIntegra\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Release\VCFramework.Entidad.dll
+F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\bin\Release\VCFramework.Entidad.pdb
+F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csprojResolveAssemblyReference.cache
+F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.csproj.CoreCompileInputs.cache
+F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.dll
+F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Release\VCFramework.Entidad.pdb

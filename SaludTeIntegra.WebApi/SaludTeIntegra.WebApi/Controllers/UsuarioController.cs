@@ -156,7 +156,7 @@ namespace SaludTeIntegra.WebApi.Controllers
                         {
                             //todo bien, seguir
                             ausG.Password = passwordEncript;
-                            ausG.FechaCreacion =VCFramework.NegocioMySQL.Utiles.ConstruyeFechaDos(DateTime.Now);
+                            ausG.FechaCreacion = VCFramework.NegocioMySQL.Utiles.ConstruyeFechaDos(DateTime.Now);
                             int idAus = VCFramework.NegocioMySql.AutentificacionUsuario.Insertar(ausG);
                             ausG.Id = idAus;
                             personaG.AusId = idAus;
@@ -171,6 +171,8 @@ namespace SaludTeIntegra.WebApi.Controllers
                             usuario.Rol = rolG;
                             //todo correcto en la creacion
                             httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usuario, EnumMensajes.Registro_creado_con_exito);
+                            //correo de creacion de usuario
+                            bool enviar = VCFramework.NegocioMySQL.Utiles.EnviarCorreoCreacionUsuario(correoElectronico, nombreUsuario, password);
 
                         }
                         else
@@ -350,12 +352,12 @@ namespace SaludTeIntegra.WebApi.Controllers
         }
 
         [System.Web.Http.AcceptVerbs("GET")]
-        public HttpResponseMessage Get([FromUri]string id)
+        public HttpResponseMessage Get([FromUri]int id)
         {
             HttpResponseMessage httpResponse = new HttpResponseMessage();
             //validaciones antes de ejecutar la llamada.
             //este id corresponde al AusId
-            if (id == "")
+            if (id == 0)
             {
                 httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "Aus Id");
             }
@@ -363,14 +365,14 @@ namespace SaludTeIntegra.WebApi.Controllers
             {
                 try
                 {
-                    int idBuscar = int.Parse(id);
+                    int idBuscar = id;
 
                     VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorId(idBuscar);
                     VCFramework.EntidadFuncional.UsuarioEnvoltorio usu = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
                     if (aus != null && aus.Id > 0)
                     {
                         VCFramework.Entidad.Roles rol = VCFramework.NegocioMySql.Roles.ListarRolesPorId(aus.RolId);
-                        VCFramework.Entidad.Persona persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(int.Parse(id));
+                        VCFramework.Entidad.Persona persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(aus.Id);
                         
                         //data de retorno
                         usu.AutentificacionUsuario = new AutentificacionUsuario();
@@ -383,7 +385,56 @@ namespace SaludTeIntegra.WebApi.Controllers
                         usu.EntidadContratante = new EntidadContratante();
                         usu.EntidadContratante = contratante;
 
-                        httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usu, EnumMensajes.Registro_desactivado_con_exito);
+                        httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usu, EnumMensajes.Correcto);
+                    }
+                    else
+                    {
+                        httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Usuario_no_existe);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    VCFramework.NegocioMySQL.Utiles.NLogs(ex);
+                    httpResponse = ManejoMensajes.RetornaMensajeExcepcion(httpResponse, ex);
+                }
+            }
+            return httpResponse;
+        }
+
+        [System.Web.Http.AcceptVerbs("GET")]
+        public HttpResponseMessage Get([FromUri]string nombreUsuario)
+        {
+            HttpResponseMessage httpResponse = new HttpResponseMessage();
+            //validaciones antes de ejecutar la llamada.
+            //este id corresponde al AusId
+            if (nombreUsuario == "")
+            {
+                httpResponse = ManejoMensajes.RetornaMensajeParametroVacio(httpResponse, EnumMensajes.Parametro_vacio_o_invalido, "nombre de usuario");
+            }
+            else
+            {
+                try
+                {
+
+                    VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorNombreUsuario(nombreUsuario);
+                    VCFramework.EntidadFuncional.UsuarioEnvoltorio usu = new VCFramework.EntidadFuncional.UsuarioEnvoltorio();
+                    if (aus != null && aus.Id > 0)
+                    {
+                        VCFramework.Entidad.Roles rol = VCFramework.NegocioMySql.Roles.ListarRolesPorId(aus.RolId);
+                        VCFramework.Entidad.Persona persona = VCFramework.NegocioMySql.Persona.ListarPersonaPorAusId(aus.Id);
+
+                        //data de retorno
+                        usu.AutentificacionUsuario = new AutentificacionUsuario();
+                        usu.AutentificacionUsuario = aus;
+                        usu.Persona = new Persona();
+                        usu.Persona = persona;
+                        usu.Rol = new Roles();
+                        usu.Rol = rol;
+                        VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(aus.EcolId);
+                        usu.EntidadContratante = new EntidadContratante();
+                        usu.EntidadContratante = contratante;
+
+                        httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usu, EnumMensajes.Correcto);
                     }
                     else
                     {

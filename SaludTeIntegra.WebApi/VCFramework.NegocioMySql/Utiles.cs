@@ -7,6 +7,11 @@ using System.Xml;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Drawing;
+using System.Configuration;
+using System.Net.Mail;
+using System.Net;
+using System.Net.Mime;
+using System.Web;
 
 namespace VCFramework.NegocioMySQL
 {
@@ -15,6 +20,197 @@ namespace VCFramework.NegocioMySQL
         public const string HTML_DOCTYPE = "text/html";
         public const string JSON_DOCTYPE = "application/json";
         public const string XML_DOCTYPE = "application/xml";
+
+
+        //metodos para enviar correo nuevos
+        public static bool EnviarCorreoCreacionUsuario(string email, string nombreUsuario, string password)
+        {
+            bool retorno = false;
+            DateTime fechaActual = DateTime.Now;
+            string Fecha = fechaActual.ToString("dd/MM/yyyy");
+            string hora = fechaActual.ToString("HH:mm");
+            string UrlLogo = ConfigurationManager.AppSettings["Logo"].ToString();
+            string correoAgenda = ConfigurationManager.AppSettings["correoEmisor"].ToString();
+            string nombreCorreoAgenda = ConfigurationManager.AppSettings["nombreCorreoEmisor"].ToString();
+            string usuarioSmtp = ConfigurationManager.AppSettings["usuarioSmtp"].ToString();
+            string contrasenaSmtp = ConfigurationManager.AppSettings["contrasenaSmtp"].ToString();
+            string smtpUrl = ConfigurationManager.AppSettings["smtpUrl"].ToString();
+            int portSmtp = Int32.Parse(ConfigurationManager.AppSettings["portSmtp"].ToString());
+            string nombreArchivo = ConfigurationManager.AppSettings["nombreArchivo"].ToString();
+
+            var client = new SmtpClient(smtpUrl, portSmtp)
+            {
+                Credentials = new NetworkCredential(usuarioSmtp, contrasenaSmtp),
+                EnableSsl = true
+            };
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(correoAgenda, nombreCorreoAgenda);
+            msg.To.Add(new MailAddress(email));
+            msg.Subject = "Alta de Usuario";
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            msg.Body = "<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" bgcolor=\"#ffffff\" color=\"#666666\"><tbody><tr><td width=\"100%\" valign=\"top\" bgcolor=\"#ffffff\"><table width=\"570\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" bgcolor=\"#ffffff\"><tbody><tr bgcolor=\"#ffffff\"><td valign=\"top\" style=\"padding:10px 0 10px 0;color:#ffffff;background:#4f5f6f;\"><center><img style=\"vertical-align:top;max-width:220px\" src=\"cid:LOGO\" alt=\"Salud Te Integra\" width=\"110\" class=\"CToWUd\"></center></td></tr><tr><td style=\"padding:20px 50px 0px 50px\"><p style=\"font-size:24px\"><strong style=\"margin-bottom:4px;display:inline-block\">Comprobante de reserva de cita</strong></p><p>Su cuenta ha sido creada con éxito:</p><p><strong>Nombre de Usuario:</strong>  " + nombreUsuario + ".<br><strong>Password:</strong> " + password + " <br></p><small style=\"font-size:10px\">Salud Te Integra es un servicio creado por Rayen Salud SPA.</small></td></tr></tbody></table></td></tr></tbody></table>";
+            msg.IsBodyHtml = true;
+            msg.BodyEncoding = System.Text.Encoding.UTF8;
+
+            //System.Net.Mime.ContentType contype = new System.Net.Mime.ContentType("text/calendar");
+            //contype.Parameters.Add("method", "REQUEST");
+            //contype.Parameters.Add("name", nombreArchivo);
+            //contype.Parameters.Add("CharSet", "UTF-8");
+
+            string attachmentPath = HttpRuntime.AppDomainAppPath + @UrlLogo;
+            Attachment inline = new Attachment(attachmentPath);
+            inline.ContentDisposition.Inline = true;
+            inline.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
+            inline.ContentId = "LOGO";
+            inline.ContentType.MediaType = "image/png";
+            inline.ContentType.Name = Path.GetFileName(attachmentPath);
+            msg.Attachments.Add(inline);
+
+            //string content = str.ToString();
+            //UTF8Encoding encoder = new UTF8Encoding();
+            //byte[] bytes = Encoding.UTF8.GetBytes(content);
+            //string contentEncoding = encoder.GetString(bytes);
+
+            //msg.Attachments.Add(new Attachment(new System.IO.MemoryStream(bytes), contype));
+
+            try
+            {
+                client.Send(msg);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                VCFramework.NegocioMySQL.Utiles.NLogs(ex);
+                throw ex;
+            }
+
+        }
+
+        public static bool EnviarCorreoRecuperacionClave(string email, string nombreUsuario, string password)
+        {
+            bool retorno = false;
+            DateTime fechaActual = DateTime.Now;
+            string Fecha = fechaActual.ToString("dd/MM/yyyy");
+            string hora = fechaActual.ToString("HH:mm");
+            string UrlLogo = ConfigurationManager.AppSettings["Logo"].ToString();
+            string correoAgenda = ConfigurationManager.AppSettings["correoEmisor"].ToString();
+            string nombreCorreoAgenda = ConfigurationManager.AppSettings["nombreCorreoEmisor"].ToString();
+            string usuarioSmtp = ConfigurationManager.AppSettings["usuarioSmtp"].ToString();
+            string contrasenaSmtp = ConfigurationManager.AppSettings["contrasenaSmtp"].ToString();
+            string smtpUrl = ConfigurationManager.AppSettings["smtpUrl"].ToString();
+            int portSmtp = Int32.Parse(ConfigurationManager.AppSettings["portSmtp"].ToString());
+            string nombreArchivo = ConfigurationManager.AppSettings["nombreArchivo"].ToString();
+
+            var client = new SmtpClient(smtpUrl, portSmtp)
+            {
+                Credentials = new NetworkCredential(usuarioSmtp, contrasenaSmtp),
+                EnableSsl = true
+            };
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(correoAgenda, nombreCorreoAgenda);
+            msg.To.Add(new MailAddress(email));
+            msg.Subject = "Recuperación de Clave";
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            msg.Body = "<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" bgcolor=\"#ffffff\" color=\"#666666\"><tbody><tr><td width=\"100%\" valign=\"top\" bgcolor=\"#ffffff\"><table width=\"570\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" bgcolor=\"#ffffff\"><tbody><tr bgcolor=\"#ffffff\"><td valign=\"top\" style=\"padding:10px 0 10px 0;color:#ffffff;background:#4f5f6f;\"><center><img style=\"vertical-align:top;max-width:220px\" src=\"cid:LOGO\" alt=\"Salud Te Integra\" width=\"110\" class=\"CToWUd\"></center></td></tr><tr><td style=\"padding:20px 50px 0px 50px\"><p style=\"font-size:24px\"><strong style=\"margin-bottom:4px;display:inline-block\">Recuperación de Clave</strong></p><p>Estimado Usuario su clave ha sido recuperada con éxito:</p><p><strong>Nombre de Usuario:</strong>  " + nombreUsuario + ".<br><strong>Su Clave:</strong> " + password + " <br></p><small style=\"font-size:10px\">Salud Te Integra es un servicio creado por Rayen Salud SPA.</small></td></tr></tbody></table></td></tr></tbody></table>";
+            msg.IsBodyHtml = true;
+            msg.BodyEncoding = System.Text.Encoding.UTF8;
+
+            //System.Net.Mime.ContentType contype = new System.Net.Mime.ContentType("text/calendar");
+            //contype.Parameters.Add("method", "REQUEST");
+            //contype.Parameters.Add("name", nombreArchivo);
+            //contype.Parameters.Add("CharSet", "UTF-8");
+
+            string attachmentPath = HttpRuntime.AppDomainAppPath + @UrlLogo;
+            Attachment inline = new Attachment(attachmentPath);
+            inline.ContentDisposition.Inline = true;
+            inline.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
+            inline.ContentId = "LOGO";
+            inline.ContentType.MediaType = "image/png";
+            inline.ContentType.Name = Path.GetFileName(attachmentPath);
+            msg.Attachments.Add(inline);
+
+            //string content = str.ToString();
+            //UTF8Encoding encoder = new UTF8Encoding();
+            //byte[] bytes = Encoding.UTF8.GetBytes(content);
+            //string contentEncoding = encoder.GetString(bytes);
+
+            //msg.Attachments.Add(new Attachment(new System.IO.MemoryStream(bytes), contype));
+
+            try
+            {
+                client.Send(msg);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                VCFramework.NegocioMySQL.Utiles.NLogs(ex);
+                throw ex;
+            }
+
+        }
+
+        public static bool EnviarCorreoCambioClave(string email, string nombreUsuario, string password)
+        {
+            bool retorno = false;
+            DateTime fechaActual = DateTime.Now;
+            string Fecha = fechaActual.ToString("dd/MM/yyyy");
+            string hora = fechaActual.ToString("HH:mm");
+            string UrlLogo = ConfigurationManager.AppSettings["Logo"].ToString();
+            string correoAgenda = ConfigurationManager.AppSettings["correoEmisor"].ToString();
+            string nombreCorreoAgenda = ConfigurationManager.AppSettings["nombreCorreoEmisor"].ToString();
+            string usuarioSmtp = ConfigurationManager.AppSettings["usuarioSmtp"].ToString();
+            string contrasenaSmtp = ConfigurationManager.AppSettings["contrasenaSmtp"].ToString();
+            string smtpUrl = ConfigurationManager.AppSettings["smtpUrl"].ToString();
+            int portSmtp = Int32.Parse(ConfigurationManager.AppSettings["portSmtp"].ToString());
+            string nombreArchivo = ConfigurationManager.AppSettings["nombreArchivo"].ToString();
+
+            var client = new SmtpClient(smtpUrl, portSmtp)
+            {
+                Credentials = new NetworkCredential(usuarioSmtp, contrasenaSmtp),
+                EnableSsl = true
+            };
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress(correoAgenda, nombreCorreoAgenda);
+            msg.To.Add(new MailAddress(email));
+            msg.Subject = "Cambio de Clave";
+            msg.SubjectEncoding = System.Text.Encoding.UTF8;
+            msg.Body = "<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" bgcolor=\"#ffffff\" color=\"#666666\"><tbody><tr><td width=\"100%\" valign=\"top\" bgcolor=\"#ffffff\"><table width=\"570\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" align=\"center\" bgcolor=\"#ffffff\"><tbody><tr bgcolor=\"#ffffff\"><td valign=\"top\" style=\"padding:10px 0 10px 0;color:#ffffff;background:#4f5f6f;\"><center><img style=\"vertical-align:top;max-width:220px\" src=\"cid:LOGO\" alt=\"Salud Te Integra\" width=\"110\" class=\"CToWUd\"></center></td></tr><tr><td style=\"padding:20px 50px 0px 50px\"><p style=\"font-size:24px\"><strong style=\"margin-bottom:4px;display:inline-block\">Recuperación de Clave</strong></p><p>Estimado Usuario su clave ha sido cambiada con éxito:</p><p><strong>Nombre de Usuario:</strong>  " + nombreUsuario + ".<br><strong>Su nueva Clave:</strong> " + password + " <br></p><small style=\"font-size:10px\">Salud Te Integra es un servicio creado por Rayen Salud SPA.</small></td></tr></tbody></table></td></tr></tbody></table>";
+            msg.IsBodyHtml = true;
+            msg.BodyEncoding = System.Text.Encoding.UTF8;
+
+            //System.Net.Mime.ContentType contype = new System.Net.Mime.ContentType("text/calendar");
+            //contype.Parameters.Add("method", "REQUEST");
+            //contype.Parameters.Add("name", nombreArchivo);
+            //contype.Parameters.Add("CharSet", "UTF-8");
+
+            string attachmentPath = HttpRuntime.AppDomainAppPath + @UrlLogo;
+            Attachment inline = new Attachment(attachmentPath);
+            inline.ContentDisposition.Inline = true;
+            inline.ContentDisposition.DispositionType = DispositionTypeNames.Inline;
+            inline.ContentId = "LOGO";
+            inline.ContentType.MediaType = "image/png";
+            inline.ContentType.Name = Path.GetFileName(attachmentPath);
+            msg.Attachments.Add(inline);
+
+            //string content = str.ToString();
+            //UTF8Encoding encoder = new UTF8Encoding();
+            //byte[] bytes = Encoding.UTF8.GetBytes(content);
+            //string contentEncoding = encoder.GetString(bytes);
+
+            //msg.Attachments.Add(new Attachment(new System.IO.MemoryStream(bytes), contype));
+
+            try
+            {
+                client.Send(msg);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                VCFramework.NegocioMySQL.Utiles.NLogs(ex);
+                throw ex;
+            }
+
+        }
 
         public static string NLogs(string mensaje)
         {
