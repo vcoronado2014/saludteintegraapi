@@ -21,3 +21,4 @@ F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\
 F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csproj.CoreCompileInputs.cache
 F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.dll
 F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.pdb
+F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.Entidad\obj\Debug\VCFramework.Entidad.csprojResolveAssemblyReference.cache

@@ -44,7 +44,8 @@ namespace SaludTeIntegra.WebApi.Controllers
                 {
                     string email = data.Email;
                     string nomberUsuario = data.NombreUsuario;
-                    string password = data.Password;
+                    string pass = data.Password;
+                    string password = VCFramework.NegocioMySQL.Utiles.DesEncriptar(pass);
                     bool resultado = VCFramework.NegocioMySQL.Utiles.EnviarCorreoRecuperacionClave(email, nomberUsuario, password);
 
                     httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, resultado);
