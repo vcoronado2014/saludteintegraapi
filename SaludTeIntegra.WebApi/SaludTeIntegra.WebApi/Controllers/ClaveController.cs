@@ -85,8 +85,16 @@ namespace SaludTeIntegra.WebApi.Controllers
             {
                 try
                 {
-                    bool resultado = VCFramework.NegocioMySQL.Utiles.EnviarCorreoCambioClave(email, nombreUsuario, password);
+                    bool resultado = false;
+                    VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorNombreUsuario(nombreUsuario);
+                    if (aus != null && aus.Id > 0)
+                    {
+                        string nuevaPass = VCFramework.NegocioMySQL.Utiles.Encriptar(password);
+                        aus.Password = nuevaPass;
+                        VCFramework.NegocioMySql.AutentificacionUsuario.Modificar(aus);
 
+                        resultado = VCFramework.NegocioMySQL.Utiles.EnviarCorreoCambioClave(email, nombreUsuario, password);
+                    }
                     httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, resultado);
                 }
                 catch (Exception ex)

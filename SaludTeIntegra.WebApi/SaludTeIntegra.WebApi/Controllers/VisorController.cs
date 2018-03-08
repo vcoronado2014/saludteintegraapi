@@ -70,7 +70,20 @@ namespace SaludTeIntegra.WebApi.Controllers
                             /#/NzA0Nzk1OTE=/MQ==/ODkxMDc2OA==/ACF6B3904AC3317878F7837BE03C7B9F/arraydecodigosdeis=12,34,33
                             por mientras la dejamos solita 
                             */
-                            httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, response.URL);
+                            //vamos a procesar la url
+                            string[] elementos = response.URL.Split('#');
+                            //los sacamos de atrás para adelante, necesitamos los 4 ultimos
+                            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                            
+                            if (elementos != null && elementos.Length > 1)
+                            {
+                                sb.Append(elementos[1]);
+                            }
+                            EntidadUrl entidad = new EntidadUrl();
+                            entidad.UrlVisor = response.URL;
+                            entidad.UrlHash = sb.ToString();
+
+                            httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, entidad);
 
                         }
                         else
@@ -95,6 +108,11 @@ namespace SaludTeIntegra.WebApi.Controllers
             return httpResponse;
 
 
+        }
+        public class EntidadUrl
+        {
+            public string UrlVisor { get; set; }
+            public string UrlHash { get; set; }
         }
 
     }
