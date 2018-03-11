@@ -149,37 +149,55 @@ namespace SaludTeIntegra.WebApi.Controllers
                     //si el usuario es nuevo
                     if (esNuevo)
                     {
-                        //esta insertando
-                        //obtenemos por nombre usuario para verificar si ya existe
-                        VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorNombreUsuario(nombreUsuario);
-                        if (aus != null && aus.Id == 0)
+                        //antes de todo se debe verificar si ya no llegò al tope de licencias contratadas
+                        int cantidadUsuarios = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorEcolId(ausG.EcolId).Count;
+                        VCFramework.Entidad.ParametrosEcol param =  VCFramework.NegocioMySql.ParametrosEcol.ListarPorEcolId(ausG.EcolId);
+                        int cantidadPermitida = 1;
+                        if (param != null && param.Id > 0)
                         {
-                            //todo bien, seguir
-                            ausG.Password = passwordEncript;
-                            ausG.FechaCreacion = VCFramework.NegocioMySQL.Utiles.ConstruyeFechaDos(DateTime.Now);
-                            int idAus = VCFramework.NegocioMySql.AutentificacionUsuario.Insertar(ausG);
-                            ausG.Id = idAus;
-                            personaG.AusId = idAus;
-                            int idPer = VCFramework.NegocioMySql.Persona.Insertar(personaG);
-                            personaG.Id = idPer;
-                            //nuevo elemento a retornar
-                            usuario.AutentificacionUsuario = new AutentificacionUsuario();
-                            usuario.AutentificacionUsuario = ausG;
-                            usuario.Persona = new Persona();
-                            usuario.Persona = personaG;
-                            usuario.Rol = new Roles();
-                            usuario.Rol = rolG;
-                            //todo correcto en la creacion
-                            httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usuario, EnumMensajes.Registro_creado_con_exito);
-                            //correo de creacion de usuario
-                            bool enviar = VCFramework.NegocioMySQL.Utiles.EnviarCorreoCreacionUsuario(correoElectronico, nombreUsuario, password);
+                            cantidadPermitida = param.TopeUsuarios;
+                        }
+                        if (cantidadPermitida <= cantidadUsuarios)
+                        {
+                            //esta insertando
+                            //obtenemos por nombre usuario para verificar si ya existe
+                            VCFramework.Entidad.AutentificacionUsuario aus = VCFramework.NegocioMySql.AutentificacionUsuario.ListarUsuariosPorNombreUsuario(nombreUsuario);
+                            if (aus != null && aus.Id == 0)
+                            {
+                                //todo bien, seguir
+                                ausG.Password = passwordEncript;
+                                ausG.FechaCreacion = VCFramework.NegocioMySQL.Utiles.ConstruyeFechaDos(DateTime.Now);
+                                int idAus = VCFramework.NegocioMySql.AutentificacionUsuario.Insertar(ausG);
+                                ausG.Id = idAus;
+                                personaG.AusId = idAus;
+                                int idPer = VCFramework.NegocioMySql.Persona.Insertar(personaG);
+                                personaG.Id = idPer;
+                                //nuevo elemento a retornar
+                                usuario.AutentificacionUsuario = new AutentificacionUsuario();
+                                usuario.AutentificacionUsuario = ausG;
+                                usuario.Persona = new Persona();
+                                usuario.Persona = personaG;
+                                usuario.Rol = new Roles();
+                                usuario.Rol = rolG;
+                                //todo correcto en la creacion
+                                httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usuario, EnumMensajes.Registro_creado_con_exito);
+                                //correo de creacion de usuario
+                                bool enviar = VCFramework.NegocioMySQL.Utiles.EnviarCorreoCreacionUsuario(correoElectronico, nombreUsuario, password);
 
+                            }
+                            else
+                            {
+                                //ya existe, error
+                                httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Usuario_ya_existe);
+                            }
                         }
                         else
                         {
-                            //ya existe, error
-                            httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Usuario_ya_existe);
+                            //excede el maximo permitido
+                            httpResponse = ManejoMensajes.RetornaMensajeError(httpResponse, EnumMensajes.Excede_maximo_permitido_de_usuarios);
                         }
+
+
 
                     }
                     else
@@ -384,6 +402,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                         VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(aus.EcolId);
                         usu.EntidadContratante = new EntidadContratante();
                         usu.EntidadContratante = contratante;
+                        VCFramework.Entidad.ParametrosEcol parametros = VCFramework.NegocioMySql.ParametrosEcol.ListarPorEcolId(aus.EcolId);
+                        usu.ParametrosEcol = new ParametrosEcol();
+                        usu.ParametrosEcol = parametros;
 
                         httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usu, EnumMensajes.Correcto);
                     }
@@ -433,6 +454,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                         VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(aus.EcolId);
                         usu.EntidadContratante = new EntidadContratante();
                         usu.EntidadContratante = contratante;
+                        VCFramework.Entidad.ParametrosEcol parametros = VCFramework.NegocioMySql.ParametrosEcol.ListarPorEcolId(aus.EcolId);
+                        usu.ParametrosEcol = new ParametrosEcol();
+                        usu.ParametrosEcol = parametros;
 
                         httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usu, EnumMensajes.Correcto);
                     }
@@ -498,6 +522,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                                     VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(au.EcolId);
                                     usuEnv.EntidadContratante = new EntidadContratante();
                                     usuEnv.EntidadContratante = contratante;
+                                    VCFramework.Entidad.ParametrosEcol parametros = VCFramework.NegocioMySql.ParametrosEcol.ListarPorEcolId(au.EcolId);
+                                    usuEnv.ParametrosEcol = new ParametrosEcol();
+                                    usuEnv.ParametrosEcol = parametros;
                                     usuarios.Add(usuEnv);
                                 }
                             }
@@ -520,6 +547,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                                     VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(au.EcolId);
                                     usuEnv.EntidadContratante = new EntidadContratante();
                                     usuEnv.EntidadContratante = contratante;
+                                    VCFramework.Entidad.ParametrosEcol parametros = VCFramework.NegocioMySql.ParametrosEcol.ListarPorEcolId(au.EcolId);
+                                    usuEnv.ParametrosEcol = new ParametrosEcol();
+                                    usuEnv.ParametrosEcol = parametros;
                                     usuarios.Add(usuEnv);
                                 }
                             }
@@ -544,6 +574,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                                     VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(au.EcolId);
                                     usuEnv.EntidadContratante = new EntidadContratante();
                                     usuEnv.EntidadContratante = contratante;
+                                    VCFramework.Entidad.ParametrosEcol parametros = VCFramework.NegocioMySql.ParametrosEcol.ListarPorEcolId(au.EcolId);
+                                    usuEnv.ParametrosEcol = new ParametrosEcol();
+                                    usuEnv.ParametrosEcol = parametros;
                                     usuarios.Add(usuEnv);
                                 }
                             }

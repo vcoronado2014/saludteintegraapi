@@ -12,5 +12,6 @@ namespace VCFramework.EntidadFuncional
         public Entidad.Persona Persona { get; set; }
         public Entidad.Roles Rol { get; set; }
         public Entidad.EntidadContratante EntidadContratante { get; set; }
+        public Entidad.ParametrosEcol ParametrosEcol { get; set; }
     }
 }

@@ -77,6 +77,9 @@ namespace SaludTeIntegra.WebApi.Controllers
                                         VCFramework.Entidad.EntidadContratante contratante = VCFramework.NegocioMySql.EntidadContratante.ListarEcolPorId(aus.EcolId);
                                         usuario.EntidadContratante = new EntidadContratante();
                                         usuario.EntidadContratante = contratante;
+                                        VCFramework.Entidad.ParametrosEcol parametros = VCFramework.NegocioMySql.ParametrosEcol.ListarPorEcolId(aus.EcolId);
+                                        usuario.ParametrosEcol = new ParametrosEcol();
+                                        usuario.ParametrosEcol = parametros;
 
                                         httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usuario);
 

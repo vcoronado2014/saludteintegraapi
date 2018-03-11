@@ -19,6 +19,7 @@ namespace SaludTeIntegra.WebApi.Controllers
         Registro_creado_con_exito = 8,
         Registro_modificado_con_exito = 9,
         Registro_desactivado_con_exito = 10,
-        Registro_eliminado_con_exito = 11
+        Registro_eliminado_con_exito = 11,
+        Excede_maximo_permitido_de_usuarios = 12
     }
 }

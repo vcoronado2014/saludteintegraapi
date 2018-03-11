@@ -27,3 +27,10 @@ F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadF
 F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csproj.CoreCompileInputs.cache
 F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
 F:\NUEVO_DESARROLLO\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb
+C:\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.dll
+C:\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.EntidadFuncional.pdb
+C:\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.dll
+C:\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\bin\Debug\VCFramework.Entidad.pdb
+C:\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.csprojResolveAssemblyReference.cache
+C:\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.dll
+C:\saludteintegraapi\SaludTeIntegra.WebApi\VCFramework.EntidadFuncional\obj\Debug\VCFramework.EntidadFuncional.pdb

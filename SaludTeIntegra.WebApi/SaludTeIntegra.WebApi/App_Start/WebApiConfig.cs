@@ -100,6 +100,18 @@ namespace SaludTeIntegra.WebApi
                 }
             );
             #endregion
+
+            #region  Impresion
+            config.Routes.MapHttpRoute(
+                name: "Impresion",
+                routeTemplate: "api/Impresion",
+                defaults: new
+                {
+                    controller = "Impresion"
+                }
+            );
+            #endregion
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
