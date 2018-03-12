@@ -23,7 +23,7 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="visor_clPortBinding", Namespace="http://metodos.visor_cl.saydex.custom.com/")]
@@ -121,8 +121,8 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
         }
     }
     
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -139,7 +139,7 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
         
         private int sistemaSolicitaConsultaField;
         
-        /// <comentarios/>
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int TipoIdentificacionPaciente {
             get {
@@ -150,7 +150,7 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
             }
         }
         
-        /// <comentarios/>
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string NumeroIdentificacionPaciente {
             get {
@@ -161,7 +161,7 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
             }
         }
         
-        /// <comentarios/>
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string IdentificadorUnicoPaciente {
             get {
@@ -172,7 +172,7 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
             }
         }
         
-        /// <comentarios/>
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string IdentificadorProfesional {
             get {
@@ -183,7 +183,7 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
             }
         }
         
-        /// <comentarios/>
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public int SistemaSolicitaConsulta {
             get {
@@ -195,8 +195,8 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
         }
     }
     
-    /// <comentarios/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.6.1055.0")]
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2612.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -205,7 +205,7 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
         
         private string uRLField;
         
-        /// <comentarios/>
+        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         public string URL {
             get {
@@ -218,11 +218,11 @@ namespace SaludTeIntegra.WebApi.ServicioVisor {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
     public delegate void ObtenerURLVisorHCCCompletedEventHandler(object sender, ObtenerURLVisorHCCCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1055.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ObtenerURLVisorHCCCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {

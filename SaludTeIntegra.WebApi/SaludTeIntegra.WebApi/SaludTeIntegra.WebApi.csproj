@@ -494,10 +494,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://172.16.0.122:8111/services/Visor_CL%3fwsdl">
+    <WebReferenceUrl Include="http://prepplataformadeintegraciones.saludenred.cl:8111/services/Visor_CL%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\ServicioVisor\</RelPath>
-      <UpdateFromURL>http://172.16.0.122:8111/services/Visor_CL%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>http://prepplataformadeintegraciones.saludenred.cl:8111/services/Visor_CL%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
