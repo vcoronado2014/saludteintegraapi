@@ -157,7 +157,7 @@ namespace SaludTeIntegra.WebApi.Controllers
                         {
                             cantidadPermitida = param.TopeUsuarios;
                         }
-                        if (cantidadPermitida <= cantidadUsuarios)
+                        if (cantidadUsuarios <=  cantidadPermitida)
                         {
                             //esta insertando
                             //obtenemos por nombre usuario para verificar si ya existe
