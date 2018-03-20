@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>c:\deploy_api_SaludTintegra</_PublishTargetUrl>
+    <_PublishTargetUrl>c:\deploy_api_SaludTintegra_N</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="ApplicationInsights.config">
@@ -85,10 +85,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 10:57:16</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/05/2018 17:28:26</publishTime>
+      <publishTime>03/20/2018 15:36:35</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/05/2018 17:28:26</publishTime>
+      <publishTime>03/20/2018 15:36:35</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/05/2018 10:57:18</publishTime>
@@ -331,13 +331,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 10:57:19</publishTime>
     </File>
     <File Include="bin/SaludTeIntegra.WebApi.dll">
-      <publishTime>03/05/2018 17:28:13</publishTime>
+      <publishTime>03/20/2018 15:36:20</publishTime>
     </File>
     <File Include="bin/SaludTeIntegra.WebApi.pdb">
-      <publishTime>03/05/2018 17:28:13</publishTime>
+      <publishTime>03/20/2018 15:36:20</publishTime>
     </File>
     <File Include="bin/SaludTeIntegra.WebApi.XmlSerializers.dll">
-      <publishTime>03/05/2018 17:28:17</publishTime>
+      <publishTime>03/20/2018 15:36:24</publishTime>
     </File>
     <File Include="bin/System.Buffers.dll">
       <publishTime>03/05/2018 10:57:20</publishTime>
@@ -394,28 +394,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 10:57:19</publishTime>
     </File>
     <File Include="bin/VCFramework.Entidad.dll">
-      <publishTime>03/05/2018 17:28:08</publishTime>
+      <publishTime>03/20/2018 15:36:16</publishTime>
     </File>
     <File Include="bin/VCFramework.Entidad.pdb">
-      <publishTime>03/05/2018 17:28:08</publishTime>
+      <publishTime>03/20/2018 15:36:16</publishTime>
     </File>
     <File Include="bin/VCFramework.EntidadFuncional.dll">
-      <publishTime>03/05/2018 17:28:09</publishTime>
+      <publishTime>03/20/2018 15:36:17</publishTime>
     </File>
     <File Include="bin/VCFramework.EntidadFuncional.pdb">
-      <publishTime>03/05/2018 17:28:09</publishTime>
+      <publishTime>03/20/2018 15:36:17</publishTime>
     </File>
     <File Include="bin/VCFramework.Negocio.Factory.dll">
       <publishTime>03/05/2018 10:57:26</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.dll">
-      <publishTime>03/05/2018 17:28:11</publishTime>
+      <publishTime>03/20/2018 15:36:18</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.dll.config">
       <publishTime>03/05/2018 10:57:18</publishTime>
     </File>
     <File Include="bin/VCFramework.NegocioMySql.pdb">
-      <publishTime>03/05/2018 17:28:11</publishTime>
+      <publishTime>03/20/2018 15:36:18</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>03/05/2018 10:57:25</publishTime>
@@ -457,7 +457,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 10:57:18</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/05/2018 17:28:20</publishTime>
+      <publishTime>03/20/2018 15:36:27</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>03/05/2018 10:57:16</publishTime>
@@ -517,10 +517,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/05/2018 10:57:16</publishTime>
     </File>
     <File Include="Web References/ServicioVisor/responseTT.datasource">
-      <publishTime>03/05/2018 10:57:16</publishTime>
+      <publishTime>03/12/2018 08:35:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/05/2018 17:28:18</publishTime>
+      <publishTime>03/20/2018 15:36:25</publishTime>
     </File>
   </ItemGroup>
 </Project>

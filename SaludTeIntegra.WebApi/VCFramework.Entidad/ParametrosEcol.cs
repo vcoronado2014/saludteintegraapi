@@ -17,5 +17,7 @@ namespace VCFramework.Entidad
         public int TopeUsuarios { get; set; }
         public string FechaTerminoContrato { get; set; }
 
+        public int TieneVisor { get; set; }
+
     }
 }

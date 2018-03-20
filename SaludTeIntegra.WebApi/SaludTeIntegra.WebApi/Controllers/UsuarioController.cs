@@ -182,7 +182,11 @@ namespace SaludTeIntegra.WebApi.Controllers
                                 //todo correcto en la creacion
                                 httpResponse = ManejoMensajes.RetornaMensajeCorrecto(httpResponse, usuario, EnumMensajes.Registro_creado_con_exito);
                                 //correo de creacion de usuario
-                                bool enviar = VCFramework.NegocioMySQL.Utiles.EnviarCorreoCreacionUsuario(correoElectronico, nombreUsuario, password);
+                                //revisamos si tiene la capacidad de enviar correo o no
+                                if (param.EnviaCorreo == 1)
+                                {
+                                    bool enviar = VCFramework.NegocioMySQL.Utiles.EnviarCorreoCreacionUsuario(correoElectronico, nombreUsuario, password);
+                                }
 
                             }
                             else
